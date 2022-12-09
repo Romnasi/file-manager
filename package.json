@@ -1,0 +1,19 @@
+{
+  "name": "file-manager",
+  "version": "1.0.0",
+  "description": "File manager using Node.js API",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Romnasi/file-manager.git"
+  },
+  "author": "Roman Holzman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Romnasi/file-manager/issues"
+  },
+  "homepage": "https://github.com/Romnasi/file-manager#readme"
+}
