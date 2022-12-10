@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
+    "start:n": "node index.js --username=Roman",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
