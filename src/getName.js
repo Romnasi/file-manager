@@ -9,4 +9,4 @@ export const getName = () => {
     return nameArg.split(SEPARATOR)[1];
   }
   return DEFAULT_USERNAME;
-};
+}
