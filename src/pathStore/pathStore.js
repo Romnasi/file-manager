@@ -1,8 +1,6 @@
 import path from "path";
 import os from "os";
-
-const MIN_LENGTH_PATH = 1;
-const UP_STEP = 1;
+import { PATH_STORE } from "../const.js";
 
 class PathStore {
   constructor() {
@@ -16,11 +14,11 @@ class PathStore {
   up = () => {
     let pathSplitted = this.dir.split(this.sep);
     const pathElementsLength = pathSplitted.length
-    if (pathElementsLength > MIN_LENGTH_PATH) {
-      pathSplitted  = pathSplitted.slice(0, pathElementsLength - UP_STEP);
+    if (pathElementsLength > PATH_STORE.MIN_LENGTH_PATH) {
+      pathSplitted  = pathSplitted.slice(0, pathElementsLength - PATH_STORE.UP_STEP);
     }
     this.dir = pathSplitted.join(this.sep)
-    if (pathElementsLength === 2) {
+    if (pathElementsLength === PATH_STORE.PENULTIMATE) {
       this.dir += this.sep;
     }
   };

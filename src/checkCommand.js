@@ -1,18 +1,4 @@
-const COMMAND_LINES_LENGTH = {
-  up: 1,
-  cd: 2,
-  ls: 1,
-  cat: 2,
-  add: 2,
-  rn: 3,
-  cp: 3,
-  mv: 3,
-  rm: 2,
-  os: 2,
-  hash: 2,
-  compress: 3,
-  decompress: 3,
-}
+import { COMMAND_LINES_LENGTH } from "./const.js";
 
 export const checkCommand = (userInput) => {
   const args = userInput.split(' ');

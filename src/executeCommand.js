@@ -12,6 +12,9 @@ export const executeCommand = (commandArgs, pathStore) => {
     case COMMAND.UP:
       pathStore.up();
       break;
+    case COMMAND.CD:
+      pathStore.up();
+      break;
     default:
       showCommandError();
       break;
