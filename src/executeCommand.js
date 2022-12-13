@@ -7,7 +7,10 @@ export const executeCommand = (commandArgs, pathStore) => {
 
   switch (command) {
     case COMMAND.LS:
-      list(pathStore.get())
+      list(pathStore.get());
+      break;
+    case COMMAND.UP:
+      pathStore.up();
       break;
     default:
       showCommandError();

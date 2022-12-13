@@ -24,12 +24,12 @@ process.stdin.on('data', (data) => {
     exit(userName)
   }
 
-  showCurrentDir(pathStore.get());
-
   const commandArgs = checkCommand(userInput);
   if (!commandArgs) {
     showCommandError();
   } else {
     executeCommand(commandArgs, pathStore);
   }
-})
+
+  showCurrentDir(pathStore.get());
+});

@@ -1,4 +1,5 @@
 export const COMMAND = {
   LS: 'ls',
-  EXIT: '.exit'
+  UP: 'up',
+  EXIT: '.exit',
 }
