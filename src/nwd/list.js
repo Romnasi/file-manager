@@ -9,7 +9,6 @@ const getSortedByName = (elements) => {
 const addType = (elements, dir) => {
   const directories = [];
   const files = [];
-  const unknowns = [];
 
   elements.forEach(element => {
     const isFile = element.isFile();
@@ -20,16 +19,13 @@ const addType = (elements, dir) => {
       files.push({ Name: nameWithExt, Type: 'file' });
     } else if (isDirectory) {
       directories.push({ Name: element.name, Type: 'directory' });
-    } else {
-      unknowns.push({ Name: element.name, Type: 'unknown' });
     }
   });
   
   const sortedDirectories = getSortedByName(directories);
-  const sortedFiles = getSortedByName(files);  
-  const sortedUnknowns = getSortedByName(unknowns);  
+  const sortedFiles = getSortedByName(files);   
   
-  return sortedDirectories.concat(sortedFiles).concat(sortedUnknowns);
+  return sortedDirectories.concat(sortedFiles)
 }
 
 
