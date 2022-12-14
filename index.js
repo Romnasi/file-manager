@@ -1,5 +1,5 @@
 import { getName } from "./src/getName.js";
-import { COMMAND } from "./src/const.js";
+import { COMMAND, ERROR_MESSAGE } from "./src/const.js";
 import { pathStore } from "./src/pathStore/pathStore.js";
 import { checkCommand } from "./src/checkCommand.js";
 import { executeCommand } from "./src/executeCommand.js";
@@ -8,7 +8,7 @@ import { showCommandError, showCurrentDir } from "./src/message/message.js";
 
 process.on('SIGINT', () => exit(userName));
 const exit = (userName) => {
-  process.stdout.write(`Thank you for using File Manager, ${userName}, goodbye!`);
+  process.stdout.write(`\nThank you for using File Manager, ${userName}, goodbye!`);
   process.exit();
 }
 
@@ -26,10 +26,9 @@ process.stdin.on('data', (data) => {
 
   const commandArgs = checkCommand(userInput);
   if (!commandArgs) {
-    showCommandError();
+    showCommandError(ERROR_MESSAGE.WRONG_COMMAND);
   } else {
     executeCommand(commandArgs, pathStore);
   }
-
   showCurrentDir(pathStore.get());
 });

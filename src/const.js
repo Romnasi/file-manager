@@ -26,3 +26,8 @@ export const PATH_STORE = {
   UP_STEP: 1,
   PENULTIMATE: 2,
 }
+
+export const ERROR_MESSAGE = {
+  WRONG_PATH: 'wrong path',
+  WRONG_COMMAND: 'wrong command',
+}
