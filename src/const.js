@@ -2,6 +2,7 @@ export const COMMAND = {
   LS: 'ls',
   UP: 'up',
   CD: 'cd',
+  CAT: 'cat',
   EXIT: '.exit',
 }
 
@@ -9,7 +10,7 @@ export const COMMAND_LINES_LENGTH = {
   [COMMAND.UP]: 1,
   [COMMAND.CD]: 2,
   [COMMAND.LS]: 1,
-  cat: 2,
+  [COMMAND.CAT]: 2,
   add: 2,
   rn: 3,
   cp: 3,
@@ -28,6 +29,7 @@ export const PATH_STORE = {
 }
 
 export const ERROR_MESSAGE = {
+  BASIC: 'Operation failed',
   WRONG_PATH: 'wrong path',
   WRONG_COMMAND: 'wrong command',
 }

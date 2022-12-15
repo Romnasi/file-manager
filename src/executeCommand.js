@@ -2,6 +2,7 @@ import { COMMAND } from "./const.js";
 import { list } from "./nwd/list.js";
 import { changeDirectory } from "./nwd/changeDirectory.js";
 import { showCommandError } from "./message/message.js";
+import { readFile } from "./fileCommands/read.js";
 
 export const executeCommand = async (commandWithArgs, pathStore) => {
   const command = commandWithArgs[0];
@@ -16,6 +17,9 @@ export const executeCommand = async (commandWithArgs, pathStore) => {
       break;
     case COMMAND.CD:
       await changeDirectory(commandArgs, pathStore);
+      break;
+    case COMMAND.CAT:
+      await readFile(commandArgs, pathStore);
       break;
     default:
       showCommandError();
