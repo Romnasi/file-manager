@@ -3,6 +3,7 @@ export const COMMAND = {
   UP: 'up',
   CD: 'cd',
   CAT: 'cat',
+  ADD: 'add',
   EXIT: '.exit',
 }
 
@@ -11,7 +12,7 @@ export const COMMAND_LINES_LENGTH = {
   [COMMAND.CD]: 2,
   [COMMAND.LS]: 1,
   [COMMAND.CAT]: 2,
-  add: 2,
+  [COMMAND.ADD]: 2,
   rn: 3,
   cp: 3,
   mv: 3,
@@ -32,4 +33,5 @@ export const ERROR_MESSAGE = {
   BASIC: 'Operation failed',
   WRONG_PATH: 'wrong path',
   WRONG_COMMAND: 'wrong command',
+  WRONG_FILENAME: 'wrong filename',
 }
