@@ -1,27 +1,11 @@
-import { access, constants } from "node:fs/promises";
 import { showCommandError } from "../message/message.js";
 import { ERROR_MESSAGE } from "../const.js";
+import { getAbsoluteFromRelativePath, checkAccess } from "../utils/utils.js";
 
 const DOT = '.'
 
-const getAbsoluteFromRelativePath = (relativePath, curDir, sep) => {
-  const pathHead = curDir.endsWith(sep) ? curDir : curDir + sep;  
-  const pathTale = relativePath.slice(2, relativePath.length);  
-  return `${pathHead}${pathTale}`;
-}
 
-
-const checkAccess = (absoluteDirectory) => {
-  try {
-    access(absoluteDirectory, constants.R_OK | constants.W_OK);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-
-export const changeDirectory = (commandArgs, pathStore) => {
+export const changeDirectory = async (commandArgs, pathStore) => {
   let destination = commandArgs[0];
 
   if (!destination) {
@@ -40,7 +24,7 @@ export const changeDirectory = (commandArgs, pathStore) => {
     showCommandError(ERROR_MESSAGE.WRONG_PATH);
     return;
   }
-  const isAccess = checkAccess(destination);
+  const isAccess = await checkAccess(destination);
 
   if (isAccess) {
     pathStore.set(destination);

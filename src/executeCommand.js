@@ -3,7 +3,7 @@ import { list } from "./nwd/list.js";
 import { changeDirectory } from "./nwd/changeDirectory.js";
 import { showCommandError } from "./message/message.js";
 
-export const executeCommand = (commandWithArgs, pathStore) => {
+export const executeCommand = async (commandWithArgs, pathStore) => {
   const command = commandWithArgs[0];
   const commandArgs = commandWithArgs.slice(1, commandWithArgs.length);
 
@@ -15,7 +15,7 @@ export const executeCommand = (commandWithArgs, pathStore) => {
       pathStore.up();
       break;
     case COMMAND.CD:
-      changeDirectory(commandArgs, pathStore);
+      await changeDirectory(commandArgs, pathStore);
       break;
     default:
       showCommandError();

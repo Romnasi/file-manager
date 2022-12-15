@@ -17,7 +17,7 @@ process.stdout.write(`Welcome to the File Manager, ${userName}!\n`);
 showCurrentDir(pathStore.get());
 
 
-process.stdin.on('data', (data) => {
+process.stdin.on('data', async (data) => {
   const userInput = data.toString().trim();
   
   if (userInput === COMMAND.EXIT) {
@@ -28,7 +28,7 @@ process.stdin.on('data', (data) => {
   if (!commandArgs) {
     showCommandError(ERROR_MESSAGE.WRONG_COMMAND);
   } else {
-    executeCommand(commandArgs, pathStore);
+    await executeCommand(commandArgs, pathStore);
   }
   showCurrentDir(pathStore.get());
 });
