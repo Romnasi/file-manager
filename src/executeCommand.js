@@ -4,6 +4,7 @@ import { changeDirectory } from "./nwd/changeDirectory.js";
 import { showCommandError } from "./message/message.js";
 import { readFile } from "./fileCommands/read.js";
 import { createFile } from "./fileCommands/newFile.js";
+import { rename } from "./fileCommands/rename.js";
 
 
 export const executeCommand = async (commandWithArgs, pathStore) => {
@@ -25,6 +26,9 @@ export const executeCommand = async (commandWithArgs, pathStore) => {
       break;
     case COMMAND.ADD:
       await createFile(commandArgs, pathStore);
+      break;
+    case COMMAND.RN:
+      await rename(commandArgs, pathStore);
       break;
     default:
       showCommandError();

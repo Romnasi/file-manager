@@ -11,17 +11,20 @@ class PathStore {
   get = () => this.dir;
   set = (newDir) => this.dir = newDir;
 
-  up = () => {
-    let pathSplitted = this.dir.split(this.sep);
+  getAnyDirectoryUp = (absolutePath) => {
+    let pathSplitted = absolutePath.split(this.sep);
     const pathElementsLength = pathSplitted.length
     if (pathElementsLength > PATH_STORE.MIN_LENGTH_PATH) {
       pathSplitted  = pathSplitted.slice(0, pathElementsLength - PATH_STORE.UP_STEP);
     }
-    this.dir = pathSplitted.join(this.sep)
+    let path = pathSplitted.join(this.sep)
     if (pathElementsLength === PATH_STORE.PENULTIMATE) {
-      this.dir += this.sep;
+      path += this.sep;
     }
-  };
+    return path;
+  }
+
+  up = () => this.set(this.getAnyDirectoryUp(this.dir));
 }
 
 export const pathStore = new PathStore();

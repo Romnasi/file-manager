@@ -4,6 +4,7 @@ export const COMMAND = {
   CD: 'cd',
   CAT: 'cat',
   ADD: 'add',
+  RN: 'rn',
   EXIT: '.exit',
 }
 
@@ -13,7 +14,7 @@ export const COMMAND_LINES_LENGTH = {
   [COMMAND.LS]: 1,
   [COMMAND.CAT]: 2,
   [COMMAND.ADD]: 2,
-  rn: 3,
+  [COMMAND.RN]: 3,
   cp: 3,
   mv: 3,
   rm: 2,
