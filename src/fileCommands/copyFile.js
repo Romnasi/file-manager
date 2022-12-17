@@ -11,7 +11,6 @@ const copy = async (filePath, copyFilePath) => {
     
 
     readable.on('error', (err) => {
-      console.log(err)
       showCommandError();
     });
 

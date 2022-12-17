@@ -33,9 +33,9 @@ export const getAbsPath = (destination, pathStore) => {
   const isRelativePath = destination.startsWith(startRelativePath);
   const isStartsAtPoint = destination.startsWith(DOT);
 
-  if (isRelativePath) {
+  if (isRelativePath || destination === DOT) {
     return getAbsoluteFromRelativePath(destination, pathStore.get(), sep);
-  } else if (isStartsAtPoint) {
+  } else if (isStartsAtPoint && destination.length > 1) {
     showCommandError(ERROR_MESSAGE.WRONG_PATH);
     return;
   }
