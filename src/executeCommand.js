@@ -1,10 +1,11 @@
 import { COMMAND } from "./const.js";
-import { list } from "./nwd/list.js";
+import { getList } from "./nwd/list.js";
 import { changeDirectory } from "./nwd/changeDirectory.js";
 import { showCommandError } from "./message/message.js";
 import { readFile } from "./fileCommands/read.js";
 import { createFile } from "./fileCommands/newFile.js";
 import { rename } from "./fileCommands/rename.js";
+import { copyFile } from "./fileCommands/copyFile.js";
 
 
 export const executeCommand = async (commandWithArgs, pathStore) => {
@@ -13,7 +14,7 @@ export const executeCommand = async (commandWithArgs, pathStore) => {
 
   switch (command) {
     case COMMAND.LS:
-      list(pathStore.get());
+      getList(pathStore.get());
       break;
     case COMMAND.UP:
       pathStore.up();
@@ -29,6 +30,9 @@ export const executeCommand = async (commandWithArgs, pathStore) => {
       break;
     case COMMAND.RN:
       await rename(commandArgs, pathStore);
+      break;
+    case COMMAND.CP:
+      await copyFile(commandArgs, pathStore);
       break;
     default:
       showCommandError();

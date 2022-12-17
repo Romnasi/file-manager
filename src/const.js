@@ -5,6 +5,7 @@ export const COMMAND = {
   CAT: 'cat',
   ADD: 'add',
   RN: 'rn',
+  CP: 'cp',
   EXIT: '.exit',
 }
 
@@ -15,7 +16,7 @@ export const COMMAND_LINES_LENGTH = {
   [COMMAND.CAT]: 2,
   [COMMAND.ADD]: 2,
   [COMMAND.RN]: 3,
-  cp: 3,
+  [COMMAND.CP]: 3,
   mv: 3,
   rm: 2,
   os: 2,
