@@ -8,6 +8,7 @@ export const COMMAND = {
   CP: 'cp',
   MV: 'mv',
   RM: 'rm',
+  OS: 'os',
   EXIT: '.exit',
 }
 
@@ -21,10 +22,18 @@ export const COMMAND_LINES_LENGTH = {
   [COMMAND.CP]: 3,
   [COMMAND.MV]: 3,
   [COMMAND.RM]: 2,
-  os: 2,
+  [COMMAND.OS]: 2,
   hash: 2,
   compress: 3,
   decompress: 3,
+}
+
+export const OS_ARGUMENT = {
+  EOL: '--EOL',
+  CPUS: '--cpus',
+  HOMEDIR: '--homedir',
+  USERNAME: '--username',
+  ARCH: '--architecture',
 }
 
 export const PATH_STORE = {

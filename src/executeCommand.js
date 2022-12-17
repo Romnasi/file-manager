@@ -8,6 +8,7 @@ import { rename } from "./fileCommands/rename.js";
 import { copyFile } from "./fileCommands/copyFile.js";
 import { moveFile } from "./fileCommands/moveFile.js";
 import { deleteFile } from "./fileCommands/deleteFile.js";
+import { executeOs } from "./os/executeOs.js";
 
 
 export const executeCommand = async (commandWithArgs, pathStore) => {
@@ -41,6 +42,9 @@ export const executeCommand = async (commandWithArgs, pathStore) => {
       break;
     case COMMAND.RM:
       await deleteFile(commandArgs, pathStore);
+      break;
+    case COMMAND.OS:
+      await executeOs(commandArgs);
       break;
     default:
       showCommandError();
