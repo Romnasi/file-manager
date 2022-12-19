@@ -1,3 +1,4 @@
+import path from "node:path";
 import { access, constants } from "node:fs/promises";
 import { showCommandError } from "../message/message.js";
 import { ERROR_MESSAGE } from "../const.js";
@@ -6,9 +7,9 @@ const DOT = '.';
 
 
 export const getAbsoluteFromRelativePath = (relativePath, curDir, sep) => {
-  const pathHead = curDir.endsWith(sep) ? curDir : curDir + sep;  
+  const pathHead = curDir.endsWith(sep) ? curDir.slice(0, curDir.length - 1) : curDir;  
   const pathTale = relativePath.slice(2, relativePath.length);  
-  return `${pathHead}${pathTale}`;
+  return path.join(pathHead, pathTale);
 }
 
 
@@ -29,16 +30,13 @@ export const getAbsPath = (destination, pathStore) => {
   }
   
   const sep = pathStore.sep;
-  const startRelativePath = DOT + sep;
-  const isRelativePath = destination.startsWith(startRelativePath);
-  const isStartsAtPoint = destination.startsWith(DOT);
+  const isRelativePath = destination.startsWith('./') || destination.startsWith('.\\');
 
   if (isRelativePath || destination === DOT) {
     return getAbsoluteFromRelativePath(destination, pathStore.get(), sep);
-  } else if (isStartsAtPoint && destination.length > 1) {
-    showCommandError(ERROR_MESSAGE.WRONG_PATH);
-    return;
   }
 
-  return destination;
+  let newPath = path.join(destination);
+  newPath = newPath.endsWith(sep) ? newPath.slice(0, newPath.length - 1) : newPath;
+  return newPath;
 }

@@ -14,14 +14,15 @@ class PathStore {
   getAnyDirectoryUp = (absolutePath) => {
     let pathSplitted = absolutePath.split(this.sep);
     const pathElementsLength = pathSplitted.length
+
     if (pathElementsLength > PATH_STORE.MIN_LENGTH_PATH) {
       pathSplitted  = pathSplitted.slice(0, pathElementsLength - PATH_STORE.UP_STEP);
     }
-    let path = pathSplitted.join(this.sep)
+    let newPath = pathSplitted.join(this.sep)
     if (pathElementsLength === PATH_STORE.PENULTIMATE) {
-      path += this.sep;
+      newPath += this.sep;
     }
-    return path;
+    return newPath;
   }
 
   up = () => this.set(this.getAnyDirectoryUp(this.dir));
