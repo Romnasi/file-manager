@@ -9,6 +9,7 @@ export const COMMAND = {
   MV: 'mv',
   RM: 'rm',
   OS: 'os',
+  HASH: 'hash',
   EXIT: '.exit',
 }
 
@@ -23,7 +24,7 @@ export const COMMAND_LINES_LENGTH = {
   [COMMAND.MV]: 3,
   [COMMAND.RM]: 2,
   [COMMAND.OS]: 2,
-  hash: 2,
+  [COMMAND.HASH]: 2,
   compress: 3,
   decompress: 3,
 }

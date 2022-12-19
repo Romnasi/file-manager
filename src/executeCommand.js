@@ -9,6 +9,7 @@ import { copyFile } from "./fileCommands/copyFile.js";
 import { moveFile } from "./fileCommands/moveFile.js";
 import { deleteFile } from "./fileCommands/deleteFile.js";
 import { executeOs } from "./os/executeOs.js";
+import { getFileHash } from "./hash/calculateHash.js";
 
 
 export const executeCommand = async (commandWithArgs, pathStore) => {
@@ -45,6 +46,9 @@ export const executeCommand = async (commandWithArgs, pathStore) => {
       break;
     case COMMAND.OS:
       await executeOs(commandArgs);
+      break;
+    case COMMAND.HASH:
+      await getFileHash(commandArgs, pathStore);
       break;
     default:
       showCommandError();
