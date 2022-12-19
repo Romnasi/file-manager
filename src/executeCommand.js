@@ -10,6 +10,7 @@ import { moveFile } from "./fileCommands/moveFile.js";
 import { deleteFile } from "./fileCommands/deleteFile.js";
 import { executeOs } from "./os/executeOs.js";
 import { getFileHash } from "./hash/calculateHash.js";
+import { compress } from "./compress/compress.js";
 
 
 export const executeCommand = async (commandWithArgs, pathStore) => {
@@ -49,6 +50,12 @@ export const executeCommand = async (commandWithArgs, pathStore) => {
       break;
     case COMMAND.HASH:
       await getFileHash(commandArgs, pathStore);
+      break;
+    case COMMAND.COMPRESS:
+      await compress(commandArgs, pathStore);
+      break;
+    case COMMAND.DECOMPRESS:
+      await compress(commandArgs, pathStore, true);
       break;
     default:
       showCommandError();

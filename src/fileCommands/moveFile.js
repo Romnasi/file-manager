@@ -38,7 +38,7 @@ export const moveFile = async (commandArgs, pathStore) => {
   if (!filePath) {
     return;
   }
-  let isAccess = await checkAccess(filePath);
+  const isAccess = await checkAccess(filePath);
 
   if (!isAccess) {
     showCommandError(ERROR_MESSAGE.WRONG_PATH);

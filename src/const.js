@@ -10,6 +10,8 @@ export const COMMAND = {
   RM: 'rm',
   OS: 'os',
   HASH: 'hash',
+  COMPRESS: 'compress',
+  DECOMPRESS: 'decompress',
   EXIT: '.exit',
 }
 
@@ -25,8 +27,8 @@ export const COMMAND_LINES_LENGTH = {
   [COMMAND.RM]: 2,
   [COMMAND.OS]: 2,
   [COMMAND.HASH]: 2,
-  compress: 3,
-  decompress: 3,
+  [COMMAND.COMPRESS]: 3,
+  [COMMAND.DECOMPRESS]: 3,
 }
 
 export const OS_ARGUMENT = {
