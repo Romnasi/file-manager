@@ -1,16 +1,16 @@
-import { COMMAND } from "./const.js";
-import { getList } from "./nwd/list.js";
-import { changeDirectory } from "./nwd/changeDirectory.js";
-import { showCommandError } from "./message/message.js";
-import { readFile } from "./fileCommands/read.js";
-import { createFile } from "./fileCommands/newFile.js";
-import { rename } from "./fileCommands/rename.js";
-import { copyFile } from "./fileCommands/copyFile.js";
-import { moveFile } from "./fileCommands/moveFile.js";
-import { deleteFile } from "./fileCommands/deleteFile.js";
-import { executeOs } from "./os/executeOs.js";
-import { getFileHash } from "./hash/calculateHash.js";
-import { compress } from "./compress/compress.js";
+import { COMMAND } from "../const.js";
+import { getList } from "../nwd/list.js";
+import { changeDirectory } from "../nwd/changeDirectory.js";
+import { showCommandError } from "../message/message.js";
+import { readFile } from "../fileCommands/read.js";
+import { createFile } from "../fileCommands/newFile.js";
+import { rename } from "../fileCommands/rename.js";
+import { copyFile } from "../fileCommands/copyFile.js";
+import { moveFile } from "../fileCommands/moveFile.js";
+import { deleteFile } from "../fileCommands/deleteFile.js";
+import { executeOs } from "../os/executeOs.js";
+import { getFileHash } from "../hash/calculateHash.js";
+import { compress } from "../compress/compress.js";
 
 
 export const executeCommand = async (commandWithArgs, pathStore) => {

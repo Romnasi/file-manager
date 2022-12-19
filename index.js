@@ -1,8 +1,8 @@
-import { getName } from "./src/getName.js";
+import { getName } from "./src/utils/getName.js";
 import { COMMAND, ERROR_MESSAGE } from "./src/const.js";
 import { pathStore } from "./src/pathStore/pathStore.js";
-import { checkCommand } from "./src/checkCommand.js";
-import { executeCommand } from "./src/executeCommand.js";
+import { checkCommand } from "./src/cliCommands/checkCommand.js";
+import { executeCommand } from "./src/cliCommands/executeCommand.js";
 import { showCommandError, showCurrentDir } from "./src/message/message.js";
 
 
